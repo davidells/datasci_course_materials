@@ -1,0 +1,69 @@
+-- Part A
+-- select count(*) from (
+--     select * from frequency where docid = '10398_txt_earn'
+-- );
+
+-- Part B
+-- select count(*) from (
+--     select term from frequency where docid = '10398_txt_earn' and count = 1
+-- );
+
+-- Part C
+-- select count(*) from (
+--    select term from frequency where docid = '10398_txt_earn' and count = 1
+--    union
+--    select term from frequency where docid = '925_txt_trade' and count = 1
+-- );
+
+-- Part D
+-- select count (*) from (
+--     select distinct docid from frequency where term in ('law', 'legal')
+-- );
+
+-- Part E
+-- select count(*) from (
+--     select docid, count(term)
+--     from frequency
+--     group by docid
+--     having count(term) > 300
+-- );
+
+-- Part F
+-- select trans.docid
+-- from (select distinct docid from frequency where term = 'transactions') trans,
+--      (select distinct docid from frequency where term = 'world') world
+-- where trans.docid = world.docid;
+
+-- Part G
+-- select A.row_num, B.col_num, SUM(A.value * B.value)
+-- from A,B
+-- where A.col_num = B.row_num
+-- group by A.row_num, B.col_num;
+
+-- Part H
+-- select f.docid, f2.docid, SUM(f.count * f2.count)
+-- from frequency f, frequency f2
+-- where f.term = f2.term
+--   and f.docid < f2.docid
+--   and f.docid = '10080_txt_crude'
+--   and f2.docid = '17035_txt_earn'
+-- group by f.docid, f2.docid;
+
+-- Part I
+-- create view if not exists frequency_q
+-- as
+-- SELECT * FROM frequency
+-- UNION
+-- SELECT 'q' as docid, 'washington' as term, 1 as count 
+-- UNION
+-- SELECT 'q' as docid, 'taxes' as term, 1 as count
+-- UNION 
+-- SELECT 'q' as docid, 'treasury' as term, 1 as count;
+-- 
+-- select f.docid, f2.docid, SUM(f.count * f2.count) as similarity
+-- from frequency_q f, frequency_q f2
+-- where f.term = f2.term
+--   and f.docid = 'q'
+-- group by f.docid, f2.docid
+-- order by similarity desc
+-- limit 10;
