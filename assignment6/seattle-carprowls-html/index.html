@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Latest compiled and minified bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+        <style>
+            body {
+                font-size:18px;
+            }
+            h2 {
+                margin-bottom: 30px;
+            }
+            p, img {
+                margin-bottom: 40px;
+            }
+        </style>
+    </head>
+    <body class='container'>
+
+        <h2 style="margin-bottom:0px">Consistent Car Prowls Plague Seattle in Summer 2014</h2>
+        <h4 style="margin-bottom:40px">By David Ells</h4>
+        <p style="margin-bottom: 10px; font-style:italic">
+            Using data provided in a Coursera course on data visualization, 
+            <a href="https://github.com/uwescience/datasci_course_materials/blob/master/assignment6/crimeanalytics.md">
+                available here
+            </a>, I've made some discoveries
+            about a common crime in Seattle: "car prowls". It turns out that Car Prowls is not the name of a hockey team as you might expect, but
+            rather the term refers to the crime of breaking into a vehicle and stealing it's contents, and it's a very persistent <a href="http://www.seattle.gov/police/prevention/auto/carprowl.htm">problem for Seattle</a>. 
+
+        </p>
+        <p>
+            <span style="font-size:90%; font-style:italic">*Note: The code for the following study can be found in 
+                <a href="https://github.com/davidells/datasci_course_materials/blob/answers/assignment6/seattle-carprowls.ipynb">this iPython notebook</a>
+        </p>
+
+        <h3>Car prowls are the most commonly reported crimes in Seattle during the summer of 2014</h3>
+        <p>Why focus on carprowls? Because according to the data, it's the most common offense in Seattle by far, beating
+           out the next closest offense, which is actually stealing the car itself. The chart below shows the number of occurrences
+           reported according to the internal label the Seattle department uses to classify the crime.
+        </p>
+        <img src="count-by-offense-type.png" />
+
+        <h3>The problem is persistent over time</h3>
+        <p>
+            The following graphics show the number of carprowls reported each day during the summer of 2014. Though there is some day-to-day
+            variance in the number of incidents reported, the overall level is consistent. The average number of daily incidents 
+            is 29, with a standard deviation of 5 (this means that on average, 2 out of 3 days had somewhere between 24 and 34 incidents
+            reported). The two week moving average shows a possible downward trend from June into the remainder of the summer, but otherwise
+            the problem appears to be consistent.
+        </p>
+        <img src="carprowls-over-time.png" />
+        <img src="carprowl-histogram.png" />
+
+        <h3>Afternoons and evenings show higher incident rates</h3>
+        <p>
+            If we look at reported incidents according to the hour of the day, we see a notable rise in incidents during the afternoon
+            and evening hours. Note that this is the hour in which the crime is <i>reported</i>, which could differ from the hour in which
+            the crime took place. This may explain the sudden drop-off of incidences after midnight: cars are being robbed while the owners
+            are asleep. An alternative explanation for the dip is the assumption that these early morning hours are when there are simply
+            less cars in public spaces.
+        </p>
+        <img src="carprowl-by-the-hour.png" />
+        
+    </body>
+
